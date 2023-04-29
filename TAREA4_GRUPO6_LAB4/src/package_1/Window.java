@@ -2,6 +2,10 @@ package package_1;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Window extends JFrame 
 {
@@ -16,9 +20,9 @@ public class Window extends JFrame
 	public Window()
 	{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(500, 500);
+		setSize(294, 287);
 		setLocation(350, 350);
-		setLayout(null);
+		getContentPane().setLayout(null);
 		AgregarBotones();
 	}
 	
@@ -36,22 +40,31 @@ public class Window extends JFrame
 	
 	public void AgregarBotones() {
 		botonEjercicio1 = new JButton();
+		botonEjercicio1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				WindowEj1 ej1 = new WindowEj1();
+			}
+		});
 		botonEjercicio1.setText("Ejercicio 1");
-		botonEjercicio1.setBounds(175, 20, 150, 30);
+		botonEjercicio1.setBounds(68, 70, 150, 30);
 		
 	    getContentPane().add(botonEjercicio1);
 	    
 		botonEjercicio2 = new JButton();
 		botonEjercicio2.setText("Ejercicio 2");
-		botonEjercicio2.setBounds(175, 70, 150, 30);
+		botonEjercicio2.setBounds(68, 130, 150, 30);
 		
 	    getContentPane().add(botonEjercicio2);
 	    
 		botonEjercicio3 = new JButton();
 		botonEjercicio3.setText("Ejercicio 3");
-		botonEjercicio3.setBounds(175, 120, 150, 30);
+		botonEjercicio3.setBounds(68, 190, 150, 30);
 		
 	    getContentPane().add(botonEjercicio3);
+	    
+	    JLabel lblGrupo = new JLabel("GRUPO NRO: 6");
+	    lblGrupo.setFont(new Font("Tahoma", Font.PLAIN, 16));
+	    lblGrupo.setBounds(22, 11, 126, 28);
+	    getContentPane().add(lblGrupo);
 	}
-	
 }
