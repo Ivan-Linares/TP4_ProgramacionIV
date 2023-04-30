@@ -77,6 +77,26 @@ public class WindowEj1 extends JFrame{
 		btnMostrar = new JButton("Mostrar");
 		btnMostrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				if(txtNombre.getText().isEmpty()) {
+					txtNombre.setBackground(Color.RED);
+				}else {
+					txtNombre.setBackground(Color.WHITE);
+				}
+				if(txtApellido.getText().isEmpty()) {
+					txtApellido.setBackground(Color.RED);
+				}else {
+					txtApellido.setBackground(Color.WHITE);
+				}
+				if(txtTelefono.getText().isEmpty()) {
+					txtTelefono.setBackground(Color.RED);
+				}else {
+					txtTelefono.setBackground(Color.WHITE);
+				}
+				if(txtFechaNac.getText().isEmpty()) {
+					txtFechaNac.setBackground(Color.RED);
+				}else {
+					txtFechaNac.setBackground(Color.WHITE);
+				}
 				lblMostrar.setText(txtNombre.getText() + " " + txtApellido.getText() + " " + txtTelefono.getText() + " " + txtFechaNac.getText());
 			}
 		});
