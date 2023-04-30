@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class WindowEj1 extends JFrame{
 
@@ -14,6 +16,8 @@ public class WindowEj1 extends JFrame{
 	private JTextField txtApellido;
 	private JTextField txtTelefono;
 	private JTextField txtFechaNac;
+	
+	private JButton btnMostrar;
 	
 	public WindowEj1(){
 		setTitle("Contactos");
@@ -64,15 +68,66 @@ public class WindowEj1 extends JFrame{
 		lblTextoDatos.setBounds(10, 215, 184, 14);
 		getContentPane().add(lblTextoDatos);
 		
+
+				
+		// JButton btnMostrar = new JButton("MOSTRAR");
+		btnMostrar = new JButton("Mostrar");
+		btnMostrar.setBounds(223, 186, 107, 23);
+		
+		btnMostrarEvent EventM = new btnMostrarEvent();
+		EventM.setTxtNombre(txtNombre);
+		EventM.setTxtApellido(txtApellido);
+		EventM.setTxtTelefono(txtTelefono);
+		EventM.setTxtFechaNac(txtFechaNac);
+		btnMostrar.addActionListener(EventM);
+			
+		
 		JLabel lblMostrar = new JLabel("");
 		lblMostrar.setBounds(10, 236, 414, 14);
-		getContentPane().add(lblMostrar);
-		
-		JButton btnMostrar = new JButton("MOSTRAR");
-		btnMostrar.setBounds(223, 186, 107, 23);
+			
+
+		String nombre = txtNombre.getText() + txtApellido.getText();
+		lblMostrar.setText(nombre);
+				
 		getContentPane().add(btnMostrar);
+		
 		
 		setVisible(true);
 	}
+
 	
+
 }
+
+
+class btnMostrarEvent implements ActionListener //Implemento ActionListener
+{
+	private JTextField txtNombre;
+	private JTextField txtApellido;
+	private JTextField txtTelefono;
+	private JTextField txtFechaNac;
+
+	public void setTxtNombre(JTextField txtNombre) {
+		this.txtNombre = txtNombre;
+	}
+
+	public void setTxtApellido(JTextField txtApellido) {
+		this.txtApellido = txtApellido;
+	}
+
+	public void setTxtTelefono(JTextField txtTelefono) {
+		this.txtTelefono = txtTelefono;
+	}
+
+
+	public void setTxtFechaNac(JTextField txtFechaNac) {
+		this.txtFechaNac = txtFechaNac;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		System.out.println(txtNombre.getText() + "\n"+ txtApellido.getText() + "\n" +
+				txtTelefono.getText() + "\n" + 	txtFechaNac.getText());
+		}
+	
+}	

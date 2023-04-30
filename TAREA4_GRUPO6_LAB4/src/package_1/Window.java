@@ -7,7 +7,7 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Window extends JFrame 
+public class Window extends JFrame //clase que hereda de Jframe
 {
 	private static final long serialVersionUID = 1L;
 	
@@ -17,7 +17,7 @@ public class Window extends JFrame
 	
 	public Window()
 	{
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // por herencia toma los set de las prop de las ventanas
 		setSize(294, 287);
 		setLocation(350, 350);
 		getContentPane().setLayout(null);
@@ -35,9 +35,9 @@ public class Window extends JFrame
 		botonEjercicio1 = new JButton();
 		botonEjercicio1.setText("Ejercicio 1");
 		botonEjercicio1.setBounds(68, 70, 150, 30);
-		botonEjercicio1.addActionListener(new EventoBoton1());
+		botonEjercicio1.addActionListener(new EventoBoton1());//interfaz que detecta cuando se hace click en un boton
 			
-		getContentPane().add(botonEjercicio1);
+		getContentPane().add(botonEjercicio1); //Agrega el boton adentro del frame
 	    
 		botonEjercicio2 = new JButton();
 		botonEjercicio2.setText("Ejercicio 2");
@@ -59,13 +59,13 @@ public class Window extends JFrame
 	    getContentPane().add(lblGrupo);
 	}
 	
-	class EventoBoton1 implements ActionListener
+	class EventoBoton1 implements ActionListener //Implemento ActionListener
 	{
 
 		@Override
-		public void actionPerformed(ActionEvent e) 
+		public void actionPerformed(ActionEvent e) //desarrolla el metodo
 		{
-			WindowEj1 ej1 = new WindowEj1();
+			WindowEj1 ej1 = new WindowEj1();  //genera la ventana Contactos
 		}
 		
 	}
