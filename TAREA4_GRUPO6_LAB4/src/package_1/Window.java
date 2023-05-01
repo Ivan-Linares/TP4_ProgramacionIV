@@ -42,14 +42,14 @@ public class Window extends JFrame //clase que hereda de Jframe
 		botonEjercicio2 = new JButton();
 		botonEjercicio2.setText("Ejercicio 2");
 		botonEjercicio2.setBounds(68, 130, 150, 30);
-		botonEjercicio1.addActionListener(new EventoBoton2());
+		botonEjercicio2.addActionListener(new EventoBoton2());
 		
 	    getContentPane().add(botonEjercicio2);
 	    
 		botonEjercicio3 = new JButton();
 		botonEjercicio3.setText("Ejercicio 3");
 		botonEjercicio3.setBounds(68, 190, 150, 30);
-		botonEjercicio1.addActionListener(new EventoBoton3());
+		botonEjercicio3.addActionListener(new EventoBoton3());
 		
 	    getContentPane().add(botonEjercicio3);
 	    
@@ -76,7 +76,7 @@ public class Window extends JFrame //clase que hereda de Jframe
 		@Override
 		public void actionPerformed(ActionEvent e) 
 		{
-			//WindowEj1 ej2 = new WindowEj1(); //TODO: Crear la clase WindowsEj2 y reemplazar la que esta puesta aca
+			WindowEj2 ej2 = new WindowEj2(); 
 		}
 		
 	}
