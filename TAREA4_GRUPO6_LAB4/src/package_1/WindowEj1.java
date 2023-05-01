@@ -35,32 +35,51 @@ public class WindowEj1 extends JFrame{
 		btnMostrar = new JButton("Mostrar");
 		btnMostrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				boolean aux = true;
+				
+				lblMostrar.setText("");
+				
 				if(txtNombre.getText().isEmpty()) {
 					txtNombre.setBackground(Color.RED);
+					aux = false;
 				}else {
 					txtNombre.setBackground(Color.WHITE);
 				}
 				if(txtApellido.getText().isEmpty()) {
 					txtApellido.setBackground(Color.RED);
+					aux = false;
 				}else {
 					txtApellido.setBackground(Color.WHITE);
 				}
 				if(txtTelefono.getText().isEmpty()) {
 					txtTelefono.setBackground(Color.RED);
+					aux = false;
 				}else {
 					txtTelefono.setBackground(Color.WHITE);
 				}
 				if(txtFechaNac.getText().isEmpty()) {
 					txtFechaNac.setBackground(Color.RED);
+					aux = false;
 				}else {
 					txtFechaNac.setBackground(Color.WHITE);
 				}
-				lblMostrar.setText(txtNombre.getText() + " " + txtApellido.getText() + " " + txtTelefono.getText() + " " + txtFechaNac.getText());
 				
-			txtNombre.setText(null);
-			txtApellido.setText(null);
-			txtTelefono.setText(null);
-			txtFechaNac.setText(null);
+				if(aux) {
+					lblMostrar.setText(txtNombre.getText() + " " + txtApellido.getText() + " " + txtTelefono.getText() + " " + txtFechaNac.getText());	
+					
+					txtNombre.setText("");
+					txtNombre.setBackground(Color.white);
+					
+					txtApellido.setText("");
+					txtApellido.setBackground(Color.white);
+					
+					txtTelefono.setText("");
+					txtTelefono.setBackground(Color.white);
+					
+					txtFechaNac.setText("");
+					txtFechaNac.setBackground(Color.white);
+				}
 			
 			}
 		});
