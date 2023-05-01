@@ -98,6 +98,14 @@ public class WindowEj1 extends JFrame{
 					txtFechaNac.setBackground(Color.WHITE);
 				}
 				lblMostrar.setText(txtNombre.getText() + " " + txtApellido.getText() + " " + txtTelefono.getText() + " " + txtFechaNac.getText());
+				
+			txtNombre.setText(null);
+			txtApellido.setText(null);
+			txtTelefono.setText(null);
+			txtFechaNac.setText(null);
+					
+			
+			
 			}
 		});
 		btnMostrar.setBounds(223, 186, 107, 23);	
