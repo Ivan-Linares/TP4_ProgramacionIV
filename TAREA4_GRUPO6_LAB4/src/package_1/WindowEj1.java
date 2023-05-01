@@ -69,16 +69,9 @@ public class WindowEj1 extends JFrame{
 					lblMostrar.setText(txtNombre.getText() + " " + txtApellido.getText() + " " + txtTelefono.getText() + " " + txtFechaNac.getText());	
 					
 					txtNombre.setText("");
-					txtNombre.setBackground(Color.white);
-					
 					txtApellido.setText("");
-					txtApellido.setBackground(Color.white);
-					
 					txtTelefono.setText("");
-					txtTelefono.setBackground(Color.white);
-					
 					txtFechaNac.setText("");
-					txtFechaNac.setBackground(Color.white);
 				}
 			
 			}
