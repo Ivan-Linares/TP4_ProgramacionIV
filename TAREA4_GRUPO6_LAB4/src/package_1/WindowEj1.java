@@ -67,8 +67,6 @@ public class WindowEj1 extends JFrame{
 			txtApellido.setText(null);
 			txtTelefono.setText(null);
 			txtFechaNac.setText(null);
-					
-			
 			
 			}
 		});
