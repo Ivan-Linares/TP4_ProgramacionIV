@@ -20,24 +20,18 @@ public class WindowEj1 extends JFrame{
 	
 	private JButton btnMostrar;
 	
-	public WindowEj1(){
+	private JLabel lblTextoDatos;
+	private JLabel lblMostrar;
+	
+	public WindowEj1()
+	{
 		setTitle("Contactos");
 		setBounds(300, 300, 450, 300);
 		getContentPane().setLayout(null);
 		
 		AgregarLabels();
 		AgregarTextFields();
-		
-		
-		JLabel lblTextoDatos = new JLabel("Los datos ingresados fueron: ");
-		lblTextoDatos.setBounds(10, 215, 184, 14);
-		getContentPane().add(lblTextoDatos);
-		
-		JLabel lblMostrar = new JLabel("");
-		lblMostrar.setBounds(10, 236, 414, 14);
-		getContentPane().add(lblMostrar);
 	
-		// JButton btnMostrar = new JButton("MOSTRAR");
 		btnMostrar = new JButton("Mostrar");
 		btnMostrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -97,6 +91,15 @@ public class WindowEj1 extends JFrame{
 		lblFechanac.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblFechanac.setBounds(50, 145, 80, 14);
 		getContentPane().add(lblFechanac);
+		
+		
+		lblTextoDatos = new JLabel("Los datos ingresados fueron: ");
+		lblTextoDatos.setBounds(10, 215, 184, 14);
+		getContentPane().add(lblTextoDatos);
+		
+		lblMostrar = new JLabel("");
+		lblMostrar.setBounds(10, 236, 414, 14);
+		getContentPane().add(lblMostrar);
 	}
 	
 	private void AgregarTextFields()
