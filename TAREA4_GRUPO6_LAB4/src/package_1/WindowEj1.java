@@ -25,45 +25,9 @@ public class WindowEj1 extends JFrame{
 		setBounds(300, 300, 450, 300);
 		getContentPane().setLayout(null);
 		
-		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblNombre.setBounds(50, 40, 80, 14);
-		getContentPane().add(lblNombre);
+		AgregarLabels();
+		AgregarTextFields();
 		
-		JLabel lblApellido = new JLabel("Apellido");
-		lblApellido.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblApellido.setBounds(50, 75, 80, 14);
-		getContentPane().add(lblApellido);
-		
-		JLabel lblTelefono = new JLabel("Telefono");
-		lblTelefono.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblTelefono.setBounds(50, 110, 80, 14);
-		getContentPane().add(lblTelefono);
-		
-		JLabel lblFechanac = new JLabel("Fecha Nac");
-		lblFechanac.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblFechanac.setBounds(50, 145, 80, 14);
-		getContentPane().add(lblFechanac);
-		
-		txtNombre = new JTextField();
-		txtNombre.setBounds(160, 38, 170, 20);
-		getContentPane().add(txtNombre);
-		txtNombre.setColumns(10);
-		
-		txtApellido = new JTextField();
-		txtApellido.setColumns(10);
-		txtApellido.setBounds(160, 73, 170, 20);
-		getContentPane().add(txtApellido);
-		
-		txtTelefono = new JTextField();
-		txtTelefono.setColumns(10);
-		txtTelefono.setBounds(160, 108, 170, 20);
-		getContentPane().add(txtTelefono);
-		
-		txtFechaNac = new JTextField();
-		txtFechaNac.setColumns(10);
-		txtFechaNac.setBounds(160, 143, 170, 20);
-		getContentPane().add(txtFechaNac);
 		
 		JLabel lblTextoDatos = new JLabel("Los datos ingresados fueron: ");
 		lblTextoDatos.setBounds(10, 215, 184, 14);
@@ -112,5 +76,51 @@ public class WindowEj1 extends JFrame{
 		getContentPane().add(btnMostrar);
 		
 		setVisible(true);
+	}
+	
+	private void AgregarLabels()
+	{
+		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNombre.setBounds(50, 40, 80, 14);
+		getContentPane().add(lblNombre);
+		
+		JLabel lblApellido = new JLabel("Apellido");
+		lblApellido.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblApellido.setBounds(50, 75, 80, 14);
+		getContentPane().add(lblApellido);
+		
+		JLabel lblTelefono = new JLabel("Telefono");
+		lblTelefono.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblTelefono.setBounds(50, 110, 80, 14);
+		getContentPane().add(lblTelefono);
+		
+		JLabel lblFechanac = new JLabel("Fecha Nac");
+		lblFechanac.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblFechanac.setBounds(50, 145, 80, 14);
+		getContentPane().add(lblFechanac);
+	}
+	
+	private void AgregarTextFields()
+	{
+		txtNombre = new JTextField();
+		txtNombre.setBounds(160, 38, 170, 20);
+		getContentPane().add(txtNombre);
+		txtNombre.setColumns(10);
+		
+		txtApellido = new JTextField();
+		txtApellido.setColumns(10);
+		txtApellido.setBounds(160, 73, 170, 20);
+		getContentPane().add(txtApellido);
+		
+		txtTelefono = new JTextField();
+		txtTelefono.setColumns(10);
+		txtTelefono.setBounds(160, 108, 170, 20);
+		getContentPane().add(txtTelefono);
+		
+		txtFechaNac = new JTextField();
+		txtFechaNac.setColumns(10);
+		txtFechaNac.setBounds(160, 143, 170, 20);
+		getContentPane().add(txtFechaNac);
 	}
 }

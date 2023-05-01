@@ -1,5 +1,4 @@
 package package_1;
-import javax.swing.JButton;
 
 public class Principal {
 

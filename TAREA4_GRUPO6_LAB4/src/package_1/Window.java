@@ -30,7 +30,7 @@ public class Window extends JFrame //clase que hereda de Jframe
 		setVisible(estado);
 	}
 	
-	public void AgregarBotones() 
+	private void AgregarBotones() 
 	{
 		botonEjercicio1 = new JButton();
 		botonEjercicio1.setText("Ejercicio 1");
