@@ -52,8 +52,9 @@ public class WindowEj2 extends JFrame
 		getContentPane().setLayout(null);
 		
 		SetPanelInput();
-		SetPanelBotones();
 		SetPanelOutput();
+		SetPanelBotones();
+		
 				
 		setVisible(true);
 	}
@@ -129,6 +130,7 @@ public class WindowEj2 extends JFrame
 	{
 		btnCalcular = new JButton("CALCULAR");
 		btnCalcular.setBounds(12, 5, 95, 25);
+		btnCalcular.addActionListener(new eventoBtnCalcular(comboBoxTPS, textCondicion, textNota1, textNota2, textNota3));
 		panelBotones.add(btnCalcular);
 		
 		btnNuevo = new JButton("NUEVO");
@@ -174,4 +176,52 @@ public class WindowEj2 extends JFrame
 		panelOutput.add(textCondicion);
 		textCondicion.setColumns(10);
 	}
+}
+
+class eventoBtnCalcular implements ActionListener{
+	private JTextField textNota1;
+	private JTextField textNota2;
+	private JTextField textNota3;
+	
+	JComboBox comboBoxTPS;
+	private JTextField textCondicion;
+	
+	public eventoBtnCalcular(JComboBox comboBoxTPS, JTextField textCondicion, JTextField textNota1, JTextField textNota2, JTextField textNota3){
+		this.comboBoxTPS = comboBoxTPS;
+		this.textCondicion = textCondicion;
+		this.textNota1 = textNota1;
+		this.textNota2 = textNota2;
+		this.textNota3 = textNota3;
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		actualizarInformacion();
+	}
+	
+	public void actualizarInformacion()
+	{
+		Double nota1 = Double.parseDouble(textNota1.getText());
+		Double nota2 = Double.parseDouble(textNota2.getText());
+		Double nota3= Double.parseDouble(textNota3.getText());
+		
+		String condicionSelected = comboBoxTPS.getSelectedItem().toString();
+		if(condicionSelected == "Desaprobado")
+			setCondicion("Libre");
+		else if(nota1 < 6 || nota2 < 6 || nota3 < 6)
+		{
+			setCondicion("Libre");
+		}
+		else if(condicionSelected == "Aprobado")
+		{
+			if(nota1 >= 8 && nota2 >= 8 && nota3 >= 8)
+				setCondicion("Promocionado");
+			else if((nota1 >= 6 && nota1 <= 8) && (nota2 >= 6 && nota2 <= 8) && (nota3 >= 6 && nota3 <= 8))
+				setCondicion("Regular");
+		}
+	}
+	
+	public void setCondicion(String condicion){
+		textCondicion.setText(condicion);
+	}
+	
 }
