@@ -252,7 +252,6 @@ class eventoBtnCalcular implements ActionListener{
 			String promedio = devolverPromedio(nota1, nota2, nota3);
 			textPromedio.setText(promedio);
 			
-			
 			String condicionSelected = comboBoxTPS.getSelectedItem().toString();
 			if(condicionSelected == "Desaprobado")
 				setCondicion("Libre");
@@ -277,11 +276,14 @@ class eventoBtnCalcular implements ActionListener{
 	}
 	
 	public static boolean validarNumeros(String datos) {
-		return datos.matches("[0-9]{1,2}");
+		if(datos.matches("[0-9]{1,2}")) {
+			return true; 
+		}
+		return datos.matches("\\d{1,2}\\.\\d");
 	}
 	
 	public static boolean validarNota(String datos) {
-		int nota = Integer.parseInt(datos);
+		double nota = Double.parseDouble(datos);
 		
 		if(nota <= 0 || nota > 10) {
 			return false;
