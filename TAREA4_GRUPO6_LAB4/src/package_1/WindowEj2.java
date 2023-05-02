@@ -157,6 +157,11 @@ public class WindowEj2 extends JFrame
 		panelBotones.add(btnNuevo);
 		
 		btnSalir = new JButton("SALIR");
+		btnSalir.addActionListener(new ActionListener() {			
+			public void actionPerformed(ActionEvent e) {				
+				dispose();
+			}			
+		});
 		btnSalir.setBounds(12, 87, 113, 25);
 		panelBotones.add(btnSalir);
 	}
