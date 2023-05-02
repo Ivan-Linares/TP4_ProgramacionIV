@@ -87,7 +87,7 @@ public class Window extends JFrame //clase que hereda de Jframe
 		@Override
 		public void actionPerformed(ActionEvent e) 
 		{
-			//WindowEj1 ej3 = new WindowEj1(); //TODO: Crear la clase WindowsEj3 y reemplazar la que esta puesta aca
+			WindowEj3 ej3 = new WindowEj3(); //TODO: Crear la clase WindowsEj3 y reemplazar la que esta puesta aca
 		}
 		
 	}
