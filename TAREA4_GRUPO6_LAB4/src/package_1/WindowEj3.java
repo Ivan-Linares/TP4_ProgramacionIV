@@ -1,6 +1,7 @@
 package package_1;
 
 import javax.swing.JFrame;
+import javax.swing.ButtonGroup;
 import java.awt.GridBagLayout;
 import javax.swing.JRadioButton;
 import java.awt.GridBagConstraints;
@@ -25,9 +26,16 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 
 public class WindowEj3 extends JFrame{
-	/**
-	 * 
-	 */
+	private JPanel panelSistemaOperativo;
+	private JRadioButton rdbtnWindows;
+	private JRadioButton rdbtnMac;
+	private JRadioButton rdbtnLinux;
+	
+	private JPanel panelEspecialidad;
+	private JCheckBox chckbxAdministracion;
+	private JCheckBox chckbxProgramacion;
+	private JCheckBox chckbxDisenoGrfico;
+	
 	private static final long serialVersionUID = 1L;
 	private JTextField txtHoras;
 	public WindowEj3() {
@@ -35,57 +43,11 @@ public class WindowEj3 extends JFrame{
 		setBounds(500,500, 485, 329);
 		getContentPane().setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel.setBounds(43, 11, 412, 57);
-		getContentPane().add(panel);
-		panel.setLayout(null);
+		SetPanelSistemaOperativo();
+		AddSeccionSistemaOperativo();	
 		
-		JLabel lblElijeUnSistema = new JLabel("Elije un sistema");
-		lblElijeUnSistema.setBounds(10, 21, 127, 14);
-		panel.add(lblElijeUnSistema);
-		
-		JRadioButton rdbtnWindows = new JRadioButton("Windows");
-		rdbtnWindows.setBounds(124, 17, 98, 23);
-		panel.add(rdbtnWindows);
-		
-		JRadioButton rdbtnMac = new JRadioButton("Mac");
-		rdbtnMac.setBounds(224, 17, 93, 23);
-		panel.add(rdbtnMac);
-		
-		JRadioButton rdbtnLinux = new JRadioButton("Linux");
-		rdbtnLinux.setBounds(319, 17, 87, 23);
-		panel.add(rdbtnLinux);
-		
-		JLabel lblOperativo = new JLabel("operativo");
-		lblOperativo.setBounds(10, 32, 108, 14);
-		panel.add(lblOperativo);
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_1.setBounds(43, 91, 411, 91);
-		getContentPane().add(panel_1);
-		panel_1.setLayout(null);
-		
-		JCheckBox chckbxAdministracion = new JCheckBox("Administracion");
-		chckbxAdministracion.setBounds(191, 35, 180, 23);
-		panel_1.add(chckbxAdministracion);
-		
-		JCheckBox chckbxProgramacion = new JCheckBox("Programacion");
-		chckbxProgramacion.setBounds(191, 9, 180, 23);
-		panel_1.add(chckbxProgramacion);
-		
-		JCheckBox chckbxDiseoGrfico = new JCheckBox("Dise\u00F1o Gr\u00E1fico");
-		chckbxDiseoGrfico.setBounds(191, 61, 180, 23);
-		panel_1.add(chckbxDiseoGrfico);
-		
-		JLabel lblElijeUnaEspecialidad = new JLabel("Elije una");
-		lblElijeUnaEspecialidad.setBounds(37, 39, 128, 14);
-		panel_1.add(lblElijeUnaEspecialidad);
-		
-		JLabel lblEspecialidad = new JLabel("especialidad");
-		lblEspecialidad.setBounds(37, 50, 99, 14);
-		panel_1.add(lblEspecialidad);
+		SetPanelEspecialidad();
+		AddSeccionEspecialidad();
 		
 		JLabel lblCantidadDeHoras = new JLabel("Cantidad de horas");
 		lblCantidadDeHoras.setBounds(43, 198, 190, 34);
@@ -97,11 +59,7 @@ public class WindowEj3 extends JFrame{
 		txtHoras.setColumns(10);
 		
 		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Test boton");
-			}
-		});
+		btnAceptar.addActionListener(new eventoBtnAceptar(rdbtnWindows, rdbtnMac, rdbtnLinux));
 		btnAceptar.setBounds(336, 256, 89, 23);
 		getContentPane().add(btnAceptar);		
 		
@@ -110,4 +68,102 @@ public class WindowEj3 extends JFrame{
 		getContentPane().add(lblEnElComputador);
 		setVisible(true);
 	}
+	
+	public void SetPanelSistemaOperativo(){
+		panelSistemaOperativo = new JPanel();
+		panelSistemaOperativo.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelSistemaOperativo.setBounds(43, 11, 412, 57);
+		getContentPane().add(panelSistemaOperativo);
+		panelSistemaOperativo.setLayout(null);
+	}
+	
+	public void AddSeccionSistemaOperativo(){
+		JLabel lblElijeUnSistema = new JLabel("Elije un sistema");
+		lblElijeUnSistema.setBounds(10, 21, 127, 14);
+		panelSistemaOperativo.add(lblElijeUnSistema);
+		
+		JLabel lblOperativo = new JLabel("operativo");
+		lblOperativo.setBounds(10, 32, 108, 14);
+		panelSistemaOperativo.add(lblOperativo);
+				
+		rdbtnWindows = new JRadioButton("Windows");
+		rdbtnWindows.setBounds(124, 17, 98, 23);
+		panelSistemaOperativo.add(rdbtnWindows);
+		
+		rdbtnMac = new JRadioButton("Mac");
+		rdbtnMac.setBounds(224, 17, 93, 23);
+		panelSistemaOperativo.add(rdbtnMac);
+		
+		rdbtnLinux = new JRadioButton("Linux");
+		rdbtnLinux.setBounds(319, 17, 87, 23);
+		panelSistemaOperativo.add(rdbtnLinux);
+		
+		ButtonGroup buttonGroup =new ButtonGroup();   
+		buttonGroup.add(rdbtnWindows);
+		buttonGroup.add(rdbtnMac);
+		buttonGroup.add(rdbtnLinux);	
+	}
+	
+	public void SetPanelEspecialidad(){
+		panelEspecialidad = new JPanel();
+		panelEspecialidad.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelEspecialidad.setBounds(43, 91, 411, 91);
+		getContentPane().add(panelEspecialidad);
+		panelEspecialidad.setLayout(null);
+	}
+	
+	public void AddSeccionEspecialidad(){
+		JLabel lblElijeUnaEspecialidad = new JLabel("Elije una");
+		lblElijeUnaEspecialidad.setBounds(37, 39, 128, 14);
+		panelEspecialidad.add(lblElijeUnaEspecialidad);
+		
+		JLabel lblEspecialidad = new JLabel("especialidad");
+		lblEspecialidad.setBounds(37, 50, 99, 14);
+		panelEspecialidad.add(lblEspecialidad);
+		
+		chckbxAdministracion = new JCheckBox("Administracion");
+		chckbxAdministracion.setBounds(191, 35, 180, 23);
+		panelEspecialidad.add(chckbxAdministracion);
+		
+		chckbxProgramacion = new JCheckBox("Programacion");
+		chckbxProgramacion.setBounds(191, 9, 180, 23);
+		panelEspecialidad.add(chckbxProgramacion);
+		
+		chckbxDisenoGrfico = new JCheckBox("Dise\u00F1o Gr\u00E1fico");
+		chckbxDisenoGrfico.setBounds(191, 61, 180, 23);
+		panelEspecialidad.add(chckbxDisenoGrfico);
+	}
+}
+
+class eventoBtnAceptar implements ActionListener {
+	
+	private JRadioButton rdbtnWindows;
+	private JRadioButton rdbtnMac;
+	private JRadioButton rdbtnLinux;
+
+	public eventoBtnAceptar(JRadioButton rdbtnWindows, JRadioButton rdbtnMac, JRadioButton rdbtnLinux){		
+		this.rdbtnWindows = rdbtnWindows;
+		this.rdbtnMac = rdbtnMac;
+		this.rdbtnLinux = rdbtnLinux;
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {		
+		mostrarInformacion();
+	}
+
+	public void mostrarInformacion(){
+		String textDialog = "";
+		
+		if(rdbtnWindows.isSelected())
+			textDialog += "Windows - ";
+		
+		if(rdbtnMac.isSelected())
+			textDialog += "Mac - ";
+		
+		if(rdbtnLinux.isSelected())
+			textDialog += "Linux - ";
+		
+		JOptionPane.showMessageDialog(null, textDialog);
+	}
+	
 }
